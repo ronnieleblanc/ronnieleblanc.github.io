@@ -31,10 +31,6 @@
       color: var(--text);
       font-family: var(--font-sans);
       line-height: 1.6;
-      background-image: 
-        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 60%, rgba(192, 132, 252, 0.05) 0%, transparent 40%);
-      background-attachment: fixed;
       padding-bottom: 5rem;
     }
 
@@ -56,7 +52,7 @@
     .nav-brand {
       font-weight: 700;
       color: var(--heading);
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       letter-spacing: -0.01em;
     }
 
@@ -120,13 +116,10 @@
       font-weight: 800;
       letter-spacing: -0.03em;
       margin-bottom: 1rem;
-    }
-
-    .hero-title em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 0.5rem;
+      border-radius: 8px;
+      display: inline-block;
     }
 
     .hero-subtitle {
@@ -193,25 +186,6 @@
       font-family: var(--font-mono);
       font-size: 0.85rem;
       color: var(--text);
-    }
-
-    /* Markdown Element Tweaks */
-    p { margin-bottom: 1rem; }
-    ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
-    li { margin-bottom: 0.5rem; font-size: 0.95rem; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* Tags */
-    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
-    .tag {
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid var(--card-border);
-      color: var(--text-bright);
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      font-family: var(--font-mono);
     }
 
     /* Contact Links */
