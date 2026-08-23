@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title | default: site.title }}</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(22, 27, 34, 0.65);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(56, 189, 248, 0.3);
+      --text: #94a3b8;
+      --text-bright: #f8fafc;
+      --heading: #ffffff;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --accent-purple: #c084fc;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 60%, rgba(192, 132, 252, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
+      padding-bottom: 5rem;
+    }
+
+    /* Sticky Navigation Bar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(9, 13, 22, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--heading);
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: var(--font-mono);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Container */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 5rem 0 2rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      color: var(--heading);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    /* Hero Typography */
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.15;
+      color: var(--heading);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-bright);
+      margin-bottom: 1.5rem;
+      max-width: 750px;
+    }
+
+    /* Cards & Grids */
+    .metrics-grid, .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .metric-card, .skill-card, .experience-card, .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(8px);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .experience-card:hover, .project-card:hover {
+      border-color: var(--card-hover-border);
+      transform: translateY(-2px);
+    }
+
+    .metric-val {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--heading);
+      font-family: var(--font-mono);
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .role-title {
+      font-size: 1.2rem;
+      color: var(--heading);
+      font-weight: 700;
+    }
+
+    .company {
+      color: var(--accent);
+    }
+
+    .date {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    /* Markdown Element Tweaks */
+    p { margin-bottom: 1rem; }
+    ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; font-size: 0.95rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .tag {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--card-border);
+      color: var(--text-bright);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+    }
+
+    /* Contact Links */
+    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--heading);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .nav-links { gap: 1rem; font-size: 0.85rem; }
+      .hero-title { font-size: 2.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-brand">Ronnie LeBlanc | Client Platform Engineer</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Tools & Architecture</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    {{ content }}
+  </div>
+
+</body>
+</html>
