@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+title: Ronnie LeBlanc | Senior Client Platform Engineer
 ---
 
 # Ronnie LeBlanc
@@ -23,19 +23,26 @@ title: Home
 ## Experience
 
 ### Senior Client Platform Engineer — Shopify
-*2016 – 2026*
+*2020 – Present*
 
-* Architected and executed enterprise-scale device management migrations, moving Apple fleet infrastructure from Jamf On-Prem to Jamf Cloud, and ultimately to **Fleet MDM**.
-* Engineered custom internal applications and microservices using MDM REST APIs to automate inventory ingestion, hardware tracking, and security posture enforcement.
-* Integrated Okta Identity Workflows with endpoint configuration profiles to ensure real-time zero-trust device compliance prior to granting application access.
-* Built automated offboarding and provisioning pipelines, significantly reducing manual lifecycle tasks across globally distributed teams.
-* Leveraged modern AI development tools (Claude Code, pi) to rapidly prototype, write, and deploy internal maintenance scripts and web services.
+* Architected and executed the global, enterprise-wide migration of thousands of macOS endpoints off legacy Jamf infrastructure onto **Fleet MDM** and osquery.
+* Engineered custom internal applications and microservices using MDM REST APIs and Python to automate inventory ingestion, hardware tracking, and security posture enforcement.
+* Integrated Okta Identity Workflows with real-time endpoint posture states, enforcing dynamic zero-trust access boundaries across SaaS applications.
+* Built automated offboarding and zero-touch provisioning pipelines, significantly reducing manual lifecycle tasks across globally distributed remote teams.
+* Leveraged modern AI development tools (`claudecode`, `pi`) to rapidly prototype, write, and deploy internal maintenance scripts, APIs, and web services.
 
-### IT Specialist — Shopify
-*2016 – Earlier*
+### Client Platform Engineer — Shopify
+*2018 – 2020*
 
-* Managed Tier 3 escalation queues for end-user computing, hardware deployment, and macOS system administration.
-* Administered early-stage endpoint management infrastructure and identity directories during company hypergrowth.
+* Managed enterprise macOS configurations, application packaging, and device policy deployments for a rapidly scaling global workforce.
+* Built and maintained automated onboarding workflows using Jamf Pro and Shell scripting, reducing manual setup overhead for thousands of incoming employee devices.
+* Partnered with security teams to implement endpoint detection, compliance policies, and automated patch management strategies.
+
+### IT Operations Specialist — Shopify
+*2016 – 2018*
+
+* Led Tier 3 technical escalations for macOS endpoints, network access, and corporate identity provisioning during company hypergrowth.
+* Maintained directory services, SSO access, and endpoint security configurations across international office hubs and remote staff.
 
 ---
 
