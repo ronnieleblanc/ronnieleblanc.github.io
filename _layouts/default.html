@@ -45,24 +45,6 @@
       }
     }
 
-    @keyframes glow {
-      0%, 100% {
-        box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
-      }
-      50% {
-        box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
-      }
-    }
-
-    @keyframes shimmer {
-      0% {
-        background-position: -1000px 0;
-      }
-      100% {
-        background-position: 1000px 0;
-      }
-    }
-
     html {
       scroll-behavior: smooth;
     }
@@ -145,14 +127,14 @@
 
     /* Container */
     .container {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
     /* Section Styling */
     section {
-      padding: 6rem 0 3rem 0;
+      padding: 5rem 0 2rem 0;
       animation: fadeInUp 0.8s ease-out;
     }
 
@@ -171,43 +153,94 @@
       font-weight: 600;
     }
 
+    h1 {
+      color: var(--heading);
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
     h2 {
       color: var(--heading);
       font-size: 2.2rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       background: linear-gradient(135deg, var(--heading), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    /* Hero Typography */
-    .hero-title {
-      font-size: 3.5rem;
-      line-height: 1.1;
-      color: var(--heading);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
-      animation: fadeInUp 0.8s ease-out 0.3s both;
+    h3 {
+      color: var(--text-bright);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
     }
 
-    .hero-title span {
-      background: linear-gradient(135deg, var(--accent), var(--accent-purple), var(--accent-pink));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    h4 {
+      color: var(--text-bright);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    .hero-subtitle {
-      font-size: 1.2rem;
+    /* Markdown Paragraph Styling */
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
       color: var(--text);
-      margin-bottom: 2rem;
-      max-width: 750px;
+    }
+
+    strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    em {
+      color: var(--text-bright);
+      font-style: italic;
+    }
+
+    /* Markdown Lists */
+    ul, ol {
+      margin: 1.5rem 0 1.5rem 1.5rem;
       line-height: 1.8;
-      animation: fadeInUp 0.8s ease-out 0.5s both;
+    }
+
+    li {
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    li strong {
+      color: var(--accent);
+    }
+
+    /* Markdown Links */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    a:hover {
+      color: var(--accent-secondary);
+      border-bottom-color: var(--accent-secondary);
+    }
+
+    /* HR Styling */
+    hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.2), transparent);
+      margin: 2rem 0;
     }
 
     /* Cards & Grids */
@@ -215,7 +248,8 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
-      margin-top: 2.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
 
     .metric-card, .skill-card, .experience-card, .project-card {
@@ -223,9 +257,8 @@
       border: 1px solid var(--card-border);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      padding: 2rem;
+      padding: 1.75rem;
       border-radius: 12px;
-      margin-bottom: 1rem;
       transition: all 0.3s ease;
       animation: fadeInUp 0.6s ease-out both;
       position: relative;
@@ -301,41 +334,12 @@
       font-weight: 500;
     }
 
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      margin-bottom: 1.25rem;
-      gap: 0.5rem;
-    }
-
-    .role-title {
-      font-size: 1.25rem;
-      color: var(--heading);
-      font-weight: 700;
-    }
-
-    .company {
-      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 600;
-    }
-
-    .date {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text);
-    }
-
     /* Contact Links */
     .contact-links { 
       display: flex; 
       gap: 1rem; 
       flex-wrap: wrap; 
-      margin-top: 2rem; 
+      margin: 2rem 0; 
     }
 
     .btn {
@@ -393,7 +397,7 @@
         gap: 1.5rem; 
         font-size: 0.85rem; 
       }
-      .hero-title { 
+      h1 { 
         font-size: 2.5rem; 
       }
       h2 {
@@ -415,7 +419,7 @@
       .nav-links { 
         gap: 1rem; 
       }
-      .hero-title { 
+      h1 { 
         font-size: 2rem; 
       }
       h2 {
@@ -428,6 +432,9 @@
       }
       .metric-card, .skill-card, .experience-card, .project-card {
         padding: 1.5rem;
+      }
+      ul, ol {
+        margin-left: 1rem;
       }
     }
   </style>
