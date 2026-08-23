@@ -38,7 +38,7 @@ title: Ronnie LeBlanc | Senior Client Platform Engineer
 * Built and maintained automated onboarding workflows using Jamf Pro and Shell scripting, reducing manual setup overhead for thousands of incoming employee devices.
 * Partnered with security teams to implement endpoint detection, compliance policies, and automated patch management strategies.
 
-### IT Operations Specialist — Shopify
+### IT Specialist — Shopify
 *2016 – 2018*
 
 * Led Tier 3 technical escalations for macOS endpoints, network access, and corporate identity provisioning during company hypergrowth.
