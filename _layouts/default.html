@@ -93,7 +93,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--rule);
-      padding: 1rem 2rem;
+      padding: 0.75rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -202,7 +202,7 @@
     /* Impact Stats Grid */
     .impact-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin: 3rem 0;
     }
@@ -220,7 +220,6 @@
     .stat-card:nth-child(1) { animation-delay: 0.1s; }
     .stat-card:nth-child(2) { animation-delay: 0.2s; }
     .stat-card:nth-child(3) { animation-delay: 0.3s; }
-    .stat-card:nth-child(4) { animation-delay: 0.4s; }
 
     .stat-card:hover {
       border-color: var(--card-hover-border);
@@ -699,7 +698,7 @@
 
     @media (max-width: 640px) {
       nav { 
-        padding: 1rem 1rem; 
+        padding: 0.75rem 1rem; 
       }
       .nav-brand { 
         font-size: 1rem; 
@@ -763,10 +762,6 @@
           <div class="stat-label">Zero-downtime MDM migrations with custom tooling</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">2</div>
-          <div class="stat-label">Interns mentored to professional growth + many new hires onboarded</div>
-        </div>
-        <div class="stat-card">
           <div class="stat-number">10+</div>
           <div class="stat-label">Years architecting MDM, identity, and endpoint security systems</div>
         </div>
@@ -828,7 +823,7 @@
       <div class="experience-item">
         <div class="exp-header">
           <div class="exp-company">Shopify</div>
-          <div class="exp-period">2016 – Present</div>
+          <div class="exp-period">2020 – Present</div>
         </div>
         <div class="exp-role">Senior Client Platform Engineer</div>
         <ul class="exp-bullets">
@@ -861,8 +856,10 @@
         </div>
         <div class="exp-role">IT Operations Specialist</div>
         <ul class="exp-bullets">
-          <li>Led Tier 3 technical escalations for macOS endpoints, network access, and corporate identity provisioning during company hypergrowth.</li>
-          <li>Maintained directory services, SSO access, and endpoint security configurations across international office hubs.</li>
+          <li>Served as the primary Jamf administrator, managing core MDM infrastructure, package building, configuration profile deployment, and policy automations.</li>
+          <li>Implemented Okta SSO application integrations and identity access workflows during company hypergrowth.</li>
+          <li>Facilitated hands-on IT onboarding for visiting global remote teams (APAC, UK, Ireland, Canada) at the Waterloo office during the rapid expansion of Shopify Plus.</li>
+          <li>Partnered with AV teams to maintain meeting room infrastructure and executed live streams and townhall broadcasts from regional offices.</li>
         </ul>
       </div>
     </section>
@@ -934,10 +931,6 @@
     </section>
 
   </div>
-
-  <footer>
-    <p>Designed with attention to detail. Built with HTML, CSS & vibe coding.</p>
-  </footer>
 
   <script>
     const toggle = document.getElementById('theme-toggle');
