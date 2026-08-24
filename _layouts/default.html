@@ -6,82 +6,32 @@
   <title>{{ page.title | default: site.title }}</title>
   <style>
     :root {
-      --bg: #0a0e27;
-      --bg-secondary: #0f1428;
-      --card-bg: rgba(20, 29, 50, 0.5);
-      --card-border: rgba(100, 116, 139, 0.2);
-      --card-hover-border: rgba(56, 189, 248, 0.5);
-      --text: #cbd5e1;
-      --text-bright: #f1f5f9;
+      --bg: #090d16;
+      --card-bg: rgba(22, 27, 34, 0.65);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(56, 189, 248, 0.3);
+      --text: #94a3b8;
+      --text-bright: #f8fafc;
       --heading: #ffffff;
       --accent: #38bdf8;
-      --accent-secondary: #06b6d4;
+      --accent-glow: rgba(56, 189, 248, 0.15);
       --accent-purple: #c084fc;
-      --accent-pink: #f472b6;
-      --accent-glow: rgba(56, 189, 248, 0.1);
-      --rule: rgba(56, 189, 248, 0.1);
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, monospace;
-      --font-serif: Georgia, 'Times New Roman', serif;
-    }
-
-    body.light {
-      --bg: #f5f2eb;
-      --bg-secondary: #edeae0;
-      --card-bg: rgba(245, 242, 235, 0.8);
-      --card-border: rgba(26, 71, 42, 0.15);
-      --card-hover-border: rgba(26, 71, 42, 0.3);
-      --text: #5a5952;
-      --text-bright: #2a2a2a;
-      --heading: #0f0f0e;
-      --accent: #1a472a;
-      --accent-secondary: #2d6a42;
-      --accent-purple: #6b4c9a;
-      --accent-pink: #c2185b;
-      --accent-glow: rgba(26, 71, 42, 0.08);
-      --rule: rgba(26, 71, 42, 0.1);
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     html {
       scroll-behavior: smooth;
     }
 
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
+      background-color: var(--bg);
       color: var(--text);
       font-family: var(--font-sans);
       line-height: 1.6;
       padding-bottom: 5rem;
-      min-height: 100vh;
-      transition: background 0.3s ease, color 0.3s ease;
     }
 
     /* Sticky Navigation Bar */
@@ -89,36 +39,26 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(10, 14, 39, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--rule);
-      padding: 0.75rem 2rem;
+      background: rgba(9, 13, 22, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      animation: slideInDown 0.6s ease-out;
-      transition: background 0.3s ease;
-    }
-
-    body.light nav {
-      background: rgba(245, 242, 235, 0.92);
     }
 
     .nav-brand {
       font-weight: 700;
       color: var(--heading);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       letter-spacing: -0.01em;
-      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 1.75rem;
       list-style: none;
     }
 
@@ -126,597 +66,227 @@
       color: var(--text);
       text-decoration: none;
       font-size: 0.9rem;
-      font-weight: 500;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-      transition: width 0.3s ease;
+      font-family: var(--font-mono);
+      transition: color 0.2s ease;
     }
 
     .nav-links a:hover {
       color: var(--accent);
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* Theme Toggle */
-    .theme-toggle {
-      background: none;
-      border: 1px solid var(--rule);
-      padding: 0.5rem 1rem;
-      color: var(--text);
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      cursor: pointer;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
     /* Container */
     .container {
-      max-width: 1000px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 1.5rem;
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 6rem 0 3rem;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
-    }
-
-    h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-      color: var(--heading);
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-      color: var(--text);
-      max-width: 65ch;
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-    }
-
-    /* Impact Stats Grid */
-    .impact-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin: 3rem 0;
-    }
-
-    .stat-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(10px);
-      padding: 2rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.6s ease-out both;
-    }
-
-    .stat-card:nth-child(1) { animation-delay: 0.1s; }
-    .stat-card:nth-child(2) { animation-delay: 0.2s; }
-    .stat-card:nth-child(3) { animation-delay: 0.3s; }
-
-    .stat-card:hover {
-      border-color: var(--card-hover-border);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
-    }
-
-    .stat-number {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      font-weight: 600;
-      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 0.75rem;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--text);
-      line-height: 1.6;
-      font-weight: 500;
     }
 
     /* Section Styling */
     section {
       padding: 5rem 0 2rem 0;
-      border-top: 1px solid var(--rule);
-      animation: fadeInUp 0.8s ease-out;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    section:first-of-type {
-      border-top: none;
+    section:last-of-type {
+      border-bottom: none;
     }
-
-    section:nth-of-type(1) { animation-delay: 0.2s; }
-    section:nth-of-type(2) { animation-delay: 0.3s; }
-    section:nth-of-type(3) { animation-delay: 0.4s; }
-    section:nth-of-type(n+4) { animation-delay: 0.5s; }
 
     .section-label {
       font-family: var(--font-mono);
-      color: var(--accent-secondary);
-      font-size: 0.8rem;
+      color: var(--accent);
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
     }
 
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
+    h1 {
+      color: var(--heading);
+      font-size: 3rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 0.5rem;
+      border-radius: 8px;
+      display: inline-block;
     }
 
     h2 {
       color: var(--heading);
-      font-family: var(--font-serif);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 600;
+      font-size: 2rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 2rem;
-      line-height: 1.2;
-    }
-
-    h2 em {
-      font-style: italic;
-      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      margin-top: 3rem;
     }
 
     h3 {
-      color: var(--text-bright);
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    /* Markdown Content */
-    p {
-      margin-bottom: 1rem;
-      line-height: 1.7;
-      color: var(--text);
-    }
-
-    strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    em {
-      color: var(--text-bright);
-      font-style: italic;
-    }
-
-    ul, ol {
-      margin: 1.5rem 0 1.5rem 1.5rem;
-      line-height: 1.8;
-    }
-
-    li {
-      margin-bottom: 0.75rem;
-      color: var(--text);
-    }
-
-    li strong {
-      color: var(--accent);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s ease;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.3);
-    }
-
-    a:hover {
-      color: var(--accent-secondary);
-      border-bottom-color: var(--accent-secondary);
-    }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--rule), transparent);
-      margin: 2rem 0;
-    }
-
-    /* Project Cards */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(10px);
-      padding: 2rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.6s ease-out both;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card:nth-child(1) { animation-delay: 0.1s; }
-    .project-card:nth-child(2) { animation-delay: 0.2s; }
-    .project-card:nth-child(3) { animation-delay: 0.3s; }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .project-card:hover::before {
-      left: 100%;
-    }
-
-    .project-card:hover {
-      border-color: var(--card-hover-border);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
-    }
-
-    .project-number {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--rule);
+      color: var(--heading);
+      font-size: 1.2rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
     }
 
-    .project-title {
-      font-family: var(--font-serif);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--heading);
-      margin-bottom: 0.75rem;
-      line-height: 1.3;
-    }
-
-    .project-description {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-    }
-
-    .project-highlights {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .highlight-badge {
-      display: inline-block;
-      padding: 0.35rem 0.85rem;
-      background: var(--accent-glow);
-      border: 1px solid var(--card-border);
-      font-size: 0.8rem;
+    h4 {
       color: var(--accent);
-      border-radius: 4px;
-      font-weight: 500;
-    }
-
-    /* Experience Timeline */
-    .experience-item {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--rule);
-      animation: fadeInUp 0.6s ease-out both;
-    }
-
-    .experience-item:last-child {
-      border-bottom: none;
-    }
-
-    .experience-item:nth-child(1) { animation-delay: 0.1s; }
-    .experience-item:nth-child(2) { animation-delay: 0.2s; }
-    .experience-item:nth-child(3) { animation-delay: 0.3s; }
-
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .exp-company {
-      font-family: var(--font-serif);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--heading);
-    }
-
-    .exp-period {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text);
-    }
-
-    .exp-role {
-      font-family: var(--font-mono);
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--accent);
+      margin: 1rem 0 0.5rem 0;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 1.25rem;
-    }
-
-    .exp-bullets {
-      list-style: none;
-    }
-
-    .exp-bullets li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.8rem;
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    .exp-bullets li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .skill-block {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(10px);
-      padding: 1.75rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.6s ease-out both;
-    }
-
-    .skill-block:nth-child(1) { animation-delay: 0.1s; }
-    .skill-block:nth-child(2) { animation-delay: 0.2s; }
-    .skill-block:nth-child(3) { animation-delay: 0.3s; }
-    .skill-block:nth-child(4) { animation-delay: 0.4s; }
-
-    .skill-block:hover {
-      border-color: var(--accent-purple);
-      box-shadow: 0 0 20px rgba(192, 132, 252, 0.2);
-    }
-
-    .skill-block-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--card-border);
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 0.4rem 0.85rem;
-      background: var(--accent-glow);
-      border: 1px solid var(--card-border);
-      font-size: 0.85rem;
-      color: var(--text);
-      border-radius: 4px;
-      transition: all 0.2s ease;
-    }
-
-    .tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* Mentorship Section */
-    .mentorship-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .mentorship-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(10px);
-      padding: 2rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.6s ease-out both;
-    }
-
-    .mentorship-card:nth-child(1) { animation-delay: 0.1s; }
-    .mentorship-card:nth-child(2) { animation-delay: 0.2s; }
-    .mentorship-card:nth-child(3) { animation-delay: 0.3s; }
-
-    .mentorship-card:hover {
-      border-color: var(--accent-secondary);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
-    }
-
-    .mentorship-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--heading);
-      margin-bottom: 0.75rem;
-    }
-
-    .mentorship-description {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    /* Contact Links */
-    .contact-links { 
-      display: flex; 
-      gap: 1rem; 
-      flex-wrap: wrap; 
-      margin: 2rem 0; 
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.85rem 1.75rem;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(192, 132, 252, 0.05));
-      border: 1px solid var(--card-border);
-      color: var(--heading);
-      border-radius: 8px;
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .btn:hover {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(192, 132, 252, 0.1));
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
-    }
-
-    .btn:hover::before {
-      left: 100%;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--rule);
-      font-size: 0.85rem;
-      color: var(--text);
       letter-spacing: 0.05em;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav { 
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 1rem; 
-      }
-      .nav-links { 
-        gap: 1.5rem; 
-        font-size: 0.85rem; 
-      }
-      h1 { 
-        font-size: 2.25rem; 
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
-      .impact-stats {
-        grid-template-columns: 1fr;
-      }
-      .project-grid, .skills-grid, .mentorship-grid {
-        grid-template-columns: 1fr;
-      }
+    p {
+      margin-bottom: 1rem;
+      max-width: 750px;
     }
 
+    /* Contact Links */
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--heading);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Table-to-Card Grid */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: contents;
+    }
+
+    tr {
+      display: contents;
+    }
+
+    td {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(8px);
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    tr:hover td {
+      border-color: var(--card-hover-border);
+      transform: translateY(-2px);
+    }
+
+    /* First column = title/header */
+    td:first-child {
+      font-weight: 700;
+      color: var(--heading);
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      min-height: 2.5rem;
+    }
+
+    /* Subsequent columns = content */
+    td:not(:first-child) {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Experience/Role Table Specifics */
+    .experience-table td:nth-child(2) {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      margin-top: -0.5rem;
+    }
+
+    .experience-table td:nth-child(3) {
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-top: 0.5rem;
+      flex-grow: 1;
+    }
+
+    /* Lists within cards */
+    td ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    td ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    td ul li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Hero subtitle styling */
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-bright);
+      margin-bottom: 1.5rem;
+      max-width: 750px;
+    }
+
+    /* Responsive */
     @media (max-width: 640px) {
-      nav { 
-        padding: 0.75rem 1rem; 
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
       }
-      .nav-brand { 
-        font-size: 1rem; 
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
       }
-      .nav-links { 
-        gap: 1rem; 
+
+      h1 {
+        font-size: 2.25rem;
       }
-      h1 { 
-        font-size: 1.75rem; 
-      }
-      h2 {
-        font-size: 1.25rem;
-      }
-      .stat-card, .project-card, .skill-block, .mentorship-card {
-        padding: 1.5rem;
-      }
-      ul, ol {
-        margin-left: 1rem;
+
+      table {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -724,233 +294,19 @@
 <body>
 
   <nav>
-    <span class="nav-brand">RL | Staff Platform Engineer</span>
+    <span class="nav-brand">Ronnie LeBlanc | Client Platform Engineer</span>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#impact">Impact</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#mentorship">Mentorship</a></li>
+      <li><a href="#highlights">Highlights</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="theme-toggle" id="theme-toggle">Dark</button>
   </nav>
 
   <div class="container">
-    
-    <!-- HERO -->
-    <section class="hero">
-      <h1>MDM architect & platform engineer</h1>
-      <p class="hero-subtitle">Building systems at scale. 10,000+ macOS devices. Zero-downtime migrations. Mentoring the next generation of infrastructure engineers.</p>
-      <div class="contact-links">
-        <a href="#contact" class="btn">Get in touch →</a>
-        <a href="https://github.com/ronnieleblanc" target="_blank" class="btn">View on GitHub →</a>
-      </div>
-    </section>
-
-    <!-- IMPACT STATS -->
-    <section id="impact">
-      <p class="section-label">Impact at Scale</p>
-      
-      <div class="impact-stats">
-        <div class="stat-card">
-          <div class="stat-number">10K+</div>
-          <div class="stat-label">macOS devices managed globally across enterprise</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Zero-downtime MDM migrations with custom tooling</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">Years architecting MDM, identity, and endpoint security systems</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <p class="section-label">About</p>
-      <h2>Architect, developer, operator, <em>and mentor.</em></h2>
-      
-      <p>I'm a platform engineer at Shopify specializing in large-scale MDM architecture and endpoint security. For the past 10 years, I've built systems that serve 10,000+ macOS devices globally, executing complex infrastructure migrations with zero downtime while simultaneously wearing multiple hats: architect, developer, operator, and team multiplier.</p>
-
-      <p>What sets me apart is my ability to operate across the entire stack—designing systems, writing code, managing migrations, and scaling teams. At Shopify, I've led three major MDM platform migrations, built custom tooling to automate complex workflows, and mentored engineers at all levels while shipping features that matter.</p>
-
-      <p>I thrive in environments where resources are constrained and context-switching is constant. My philosophy: build systems that scale, write code that lasts, and invest in people.</p>
-    </section>
-
-    <!-- PROJECTS & ARCHITECTURE -->
-    <section id="projects">
-      <p class="section-label">Key Projects</p>
-      <h2>Migrations & <em>infrastructure</em> at scale.</h2>
-
-      {{ content }}
-    </section>
-
-    <!-- MENTORSHIP -->
-    <section id="mentorship">
-      <p class="section-label">Team Impact</p>
-      <h2>Multiplying impact through <em>mentorship.</em></h2>
-
-      <div class="mentorship-grid">
-        <div class="mentorship-card">
-          <div class="mentorship-title">Intern Mentorship</div>
-          <div class="mentorship-description">
-            Formally mentored 2 interns from onboarding through career foundation, providing technical guidance, code review, and career development across MDM architecture and platform engineering.
-          </div>
-        </div>
-        <div class="mentorship-card">
-          <div class="mentorship-title">Onboarding Lead</div>
-          <div class="mentorship-description">
-            Served as primary onboarding buddy for numerous new hires and team promotions, establishing foundational knowledge, accelerating ramp time, and building strong cross-functional relationships.
-          </div>
-        </div>
-        <div class="mentorship-card">
-          <div class="mentorship-title">Technical Leadership</div>
-          <div class="mentorship-description">
-            Invested in team growth by running architectural reviews, mentoring on complex system design, and creating documentation that scales institutional knowledge.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <p class="section-label">Experience</p>
-      <h2>Where I've <em>built.</em></h2>
-
-      <div class="experience-item">
-        <div class="exp-header">
-          <div class="exp-company">Shopify</div>
-          <div class="exp-period">2020 – Present</div>
-        </div>
-        <div class="exp-role">Senior Client Platform Engineer</div>
-        <ul class="exp-bullets">
-          <li>Architected and executed the global, enterprise-wide migration of 10,000+ macOS endpoints from legacy Jamf infrastructure onto <strong>Fleet MDM</strong> and osquery with zero downtime.</li>
-          <li>Led two prior MDM migrations: <strong>Jamf on-prem → Jamf Cloud</strong> and <strong>Jamf Cloud → Fleet MDM</strong>, building custom migration tooling and orchestration to minimize risk.</li>
-          <li>Engineered custom internal web apps, microservices, and native client utilities using <strong>Ruby on Rails</strong>, <strong>Swift</strong>, Python, and MDM REST APIs for inventory management and compliance.</li>
-          <li>Integrated <strong>Okta Identity Workflows</strong> with real-time endpoint posture states, enforcing dynamic zero-trust access across SaaS applications.</li>
-          <li>Built automated offboarding and zero-touch provisioning pipelines using Shell scripting and REST APIs, reducing manual lifecycle tasks across globally distributed teams.</li>
-          <li>Mentored interns and new hires on platform architecture, code review practices, and infrastructure design decisions.</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="exp-header">
-          <div class="exp-company">Shopify</div>
-          <div class="exp-period">2018 – 2020</div>
-        </div>
-        <div class="exp-role">Client Platform Engineer</div>
-        <ul class="exp-bullets">
-          <li>Managed enterprise macOS configurations, application packaging, and device policy deployments for rapidly scaling global workforce.</li>
-          <li>Built and maintained automated onboarding workflows and internal endpoint utilities using Ruby, Swift, Jamf Pro, and Shell scripting.</li>
-          <li>Partnered with security teams to implement endpoint detection, compliance policies, and automated patch management.</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="exp-header">
-          <div class="exp-company">Shopify</div>
-          <div class="exp-period">2016 – 2018</div>
-        </div>
-        <div class="exp-role">IT Operations Specialist</div>
-        <ul class="exp-bullets">
-          <li>Served as the primary Jamf administrator, managing core MDM infrastructure, package building, configuration profile deployment, and policy automations.</li>
-          <li>Implemented Okta SSO application integrations and identity access workflows during company hypergrowth.</li>
-          <li>Facilitated hands-on IT onboarding for visiting global remote teams (APAC, UK, Ireland, Canada) at the Waterloo office during the rapid expansion of Shopify Plus.</li>
-          <li>Partnered with AV teams to maintain meeting room infrastructure and executed live streams and townhall broadcasts from regional offices.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <p class="section-label">Technical Toolkit</p>
-      <h2>Skills & <em>expertise.</em></h2>
-
-      <div class="skills-grid">
-        <div class="skill-block">
-          <div class="skill-block-title">MDM & Endpoint</div>
-          <div class="skill-tags">
-            <span class="tag">Fleet MDM</span>
-            <span class="tag">Jamf Pro</span>
-            <span class="tag">Jamf Cloud</span>
-            <span class="tag">macOS/iOS</span>
-            <span class="tag">osquery</span>
-            <span class="tag">Zero-Touch Provisioning</span>
-          </div>
-        </div>
-        <div class="skill-block">
-          <div class="skill-block-title">Identity & Security</div>
-          <div class="skill-tags">
-            <span class="tag">Okta Workflows</span>
-            <span class="tag">Zero-Trust</span>
-            <span class="tag">SAML/OIDC</span>
-            <span class="tag">Device Auth</span>
-            <span class="tag">Compliance</span>
-          </div>
-        </div>
-        <div class="skill-block">
-          <div class="skill-block-title">Languages & Frameworks</div>
-          <div class="skill-tags">
-            <span class="tag">Ruby on Rails</span>
-            <span class="tag">Swift</span>
-            <span class="tag">Python</span>
-            <span class="tag">Shell Script</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">Webhooks</span>
-          </div>
-        </div>
-        <div class="skill-block">
-          <div class="skill-block-title">Platform & Tools</div>
-          <div class="skill-tags">
-            <span class="tag">Migrations</span>
-            <span class="tag">System Design</span>
-            <span class="tag">Infrastructure</span>
-            <span class="tag">Automation</span>
-            <span class="tag">Git</span>
-            <span class="tag">GitHub</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <p class="section-label">Get in Touch</p>
-      <h2>Let's talk about <em>systems</em> & <em>scale.</em></h2>
-      
-      <p>Open to Staff Engineer, Principal Engineer, and leadership roles in MDM, endpoint security, and platform engineering. Interested in opportunities where architectural thinking, hands-on engineering, and team mentorship are valued.</p>
-
-      <div class="contact-links">
-        <a href="mailto:ronnie.leblanc@me.com" class="btn">Email</a>
-        <a href="https://www.linkedin.com/in/ronnieleblanc/" target="_blank" class="btn">LinkedIn</a>
-        <a href="https://github.com/ronnieleblanc" target="_blank" class="btn">GitHub</a>
-      </div>
-    </section>
-
+    {{ content }}
   </div>
-
-  <script>
-    const toggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    
-    // Check for saved theme preference or default to dark
-    if (localStorage.getItem('theme') === 'light') {
-      body.classList.add('light');
-      toggle.textContent = 'Light';
-    } else {
-      toggle.textContent = 'Dark';
-    }
-    
-    toggle.addEventListener('click', () => {
-      body.classList.toggle('light');
-      const isLight = body.classList.contains('light');
-      toggle.textContent = isLight ? 'Light' : 'Dark';
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    });
-  </script>
 
 </body>
 </html>
