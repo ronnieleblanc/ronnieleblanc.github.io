@@ -41,8 +41,10 @@ title: Ronnie LeBlanc | Senior Client Platform Engineer
 ### IT Operations Specialist — Shopify
 *2016 – 2018*
 
-* Led Tier 3 technical escalations for macOS endpoints, network access, and corporate identity provisioning during company hypergrowth.
-* Maintained directory services, SSO access, and endpoint security configurations across international office hubs and remote staff.
+* Served as the primary Jamf administrator, managing core MDM infrastructure, package building, configuration profile deployment, and policy automations.
+* Implemented Okta SSO application integrations and identity access workflows during company hypergrowth.
+* Facilitated hands-on IT onboarding for visiting global remote teams (APAC, UK, Ireland, Canada) at the Waterloo office during the rapid expansion of Shopify Plus.
+* Partnered with AV teams to maintain meeting room infrastructure and executed live streams and townhall broadcasts from regional offices.
 
 ---
 
