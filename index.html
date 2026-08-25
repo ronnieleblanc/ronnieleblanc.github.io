@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title | default: site.title }}</title>
+  <title>Ronnie LeBlanc | Senior Client Platform Engineer</title>
   <style>
     :root {
       --bg: #0a0e27;
@@ -26,20 +26,20 @@
     }
 
     body.light {
-      --bg: #f5f2eb;
-      --bg-secondary: #edeae0;
-      --card-bg: rgba(245, 242, 235, 0.8);
-      --card-border: rgba(26, 71, 42, 0.15);
-      --card-hover-border: rgba(26, 71, 42, 0.3);
-      --text: #5a5952;
-      --text-bright: #2a2a2a;
-      --heading: #0f0f0e;
-      --accent: #1a472a;
-      --accent-secondary: #2d6a42;
-      --accent-purple: #6b4c9a;
-      --accent-pink: #c2185b;
-      --accent-glow: rgba(26, 71, 42, 0.08);
-      --rule: rgba(26, 71, 42, 0.1);
+      --bg: #f1f7fb;
+      --bg-secondary: #e5f0f7;
+      --card-bg: rgba(241, 247, 251, 0.8);
+      --card-border: rgba(14, 116, 144, 0.18);
+      --card-hover-border: rgba(14, 165, 233, 0.45);
+      --text: #526273;
+      --text-bright: #243447;
+      --heading: #102a43;
+      --accent: #0284c7;
+      --accent-secondary: #0891b2;
+      --accent-purple: #9333ea;
+      --accent-pink: #db2777;
+      --accent-glow: rgba(14, 165, 233, 0.09);
+      --rule: rgba(14, 116, 144, 0.14);
     }
 
     @keyframes fadeInUp {
@@ -102,7 +102,7 @@
     }
 
     body.light nav {
-      background: rgba(245, 242, 235, 0.92);
+      background: rgba(241, 247, 251, 0.92);
     }
 
     .nav-brand {
@@ -183,7 +183,7 @@
 
     h1 {
       font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
       font-weight: 600;
       line-height: 1.1;
       letter-spacing: -0.02em;
@@ -445,21 +445,30 @@
     }
 
     /* Experience Timeline */
-    .experience-item {
+    .company-group {
       padding: 2.5rem 0;
-      border-bottom: 1px solid var(--rule);
       animation: fadeInUp 0.6s ease-out both;
     }
 
-    .experience-item:last-child {
+    .company-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .role-item {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .role-item:last-child {
       border-bottom: none;
     }
 
-    .experience-item:nth-child(1) { animation-delay: 0.1s; }
-    .experience-item:nth-child(2) { animation-delay: 0.2s; }
-    .experience-item:nth-child(3) { animation-delay: 0.3s; }
-
-    .exp-header {
+    .role-item .exp-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -470,9 +479,16 @@
 
     .exp-company {
       font-family: var(--font-serif);
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: 600;
       color: var(--heading);
+    }
+
+    .company-period {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-top: 0.25rem;
     }
 
     .exp-period {
@@ -489,6 +505,10 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 1.25rem;
+    }
+
+    .role-item .exp-role {
+      margin-bottom: 0;
     }
 
     .exp-bullets {
@@ -572,47 +592,6 @@
       color: var(--accent);
     }
 
-    /* Mentorship Section */
-    .mentorship-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .mentorship-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(10px);
-      padding: 2rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.6s ease-out both;
-    }
-
-    .mentorship-card:nth-child(1) { animation-delay: 0.1s; }
-    .mentorship-card:nth-child(2) { animation-delay: 0.2s; }
-    .mentorship-card:nth-child(3) { animation-delay: 0.3s; }
-
-    .mentorship-card:hover {
-      border-color: var(--accent-secondary);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
-    }
-
-    .mentorship-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--heading);
-      margin-bottom: 0.75rem;
-    }
-
-    .mentorship-description {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.7;
-    }
-
     /* Contact Links */
     .contact-links { 
       display: flex; 
@@ -691,7 +670,7 @@
       .impact-stats {
         grid-template-columns: 1fr;
       }
-      .project-grid, .skills-grid, .mentorship-grid {
+      .project-grid, .skills-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -712,7 +691,7 @@
       h2 {
         font-size: 1.25rem;
       }
-      .stat-card, .project-card, .skill-block, .mentorship-card {
+      .stat-card, .project-card, .skill-block {
         padding: 1.5rem;
       }
       ul, ol {
@@ -724,13 +703,13 @@
 <body>
 
   <nav>
-    <span class="nav-brand">RL | Staff Platform Engineer</span>
+    <span class="nav-brand">Ronnie LeBlanc | Platform Engineer</span>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#impact">Impact</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#mentorship">Mentorship</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="theme-toggle" id="theme-toggle">Dark</button>
@@ -740,12 +719,24 @@
     
     <!-- HERO -->
     <section class="hero">
-      <h1>MDM architect & platform engineer</h1>
+      <h1>MDM architect &<br />platform engineer</h1>
       <p class="hero-subtitle">Building systems at scale. 10,000+ macOS devices. Zero-downtime migrations. Mentoring the next generation of infrastructure engineers.</p>
       <div class="contact-links">
         <a href="#contact" class="btn">Get in touch →</a>
-        <a href="https://github.com/ronnieleblanc" target="_blank" class="btn">View on GitHub →</a>
+        <a href="https://github.com/ronnieleblanc" target="_blank" rel="noopener noreferrer" class="btn">View on GitHub ↗</a>
       </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <p class="section-label">About</p>
+      <h2>Architect, developer, operator, <em>and mentor.</em></h2>
+
+      <p>I'm a platform engineer at Shopify specializing in large-scale MDM architecture and endpoint security. For the past 10 years, I've built systems that serve 10,000+ macOS devices globally, executing complex infrastructure migrations with zero downtime while simultaneously wearing multiple hats: architect, developer, operator, and team multiplier.</p>
+
+      <p>What sets me apart is my ability to operate across the entire stack—designing systems, writing code, managing migrations, and scaling teams. At Shopify, I've led three major MDM platform migrations, built custom tooling to automate complex workflows, and mentored engineers at all levels while shipping features that matter.</p>
+
+      <p>I thrive in environments where resources are constrained and context-switching is constant. My philosophy: build systems that scale, write code that lasts, and invest in people.</p>
     </section>
 
     <!-- IMPACT STATS -->
@@ -768,48 +759,44 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <p class="section-label">About</p>
-      <h2>Architect, developer, operator, <em>and mentor.</em></h2>
-      
-      <p>I'm a platform engineer at Shopify specializing in large-scale MDM architecture and endpoint security. For the past 10 years, I've built systems that serve 10,000+ macOS devices globally, executing complex infrastructure migrations with zero downtime while simultaneously wearing multiple hats: architect, developer, operator, and team multiplier.</p>
-
-      <p>What sets me apart is my ability to operate across the entire stack—designing systems, writing code, managing migrations, and scaling teams. At Shopify, I've led three major MDM platform migrations, built custom tooling to automate complex workflows, and mentored engineers at all levels while shipping features that matter.</p>
-
-      <p>I thrive in environments where resources are constrained and context-switching is constant. My philosophy: build systems that scale, write code that lasts, and invest in people.</p>
-    </section>
-
     <!-- PROJECTS & ARCHITECTURE -->
     <section id="projects">
       <p class="section-label">Key Projects</p>
       <h2>Migrations & <em>infrastructure</em> at scale.</h2>
-    </section>
 
-    <!-- MENTORSHIP -->
-    <section id="mentorship">
-      <p class="section-label">Team Impact</p>
-      <h2>Multiplying impact through <em>mentorship.</em></h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-number">01</div>
+          <h3 class="project-title">Jamf-to-Fleet Enterprise Migration</h3>
+          <p class="project-description">Led the technical strategy and rollout for moving 10,000+ macOS endpoints from legacy Jamf infrastructure to Fleet MDM and osquery with zero downtime.</p>
+          <div class="project-highlights">
+            <span class="highlight-badge">Fleet MDM</span>
+            <span class="highlight-badge">osquery</span>
+            <span class="highlight-badge">Zero downtime</span>
+          </div>
+        </article>
 
-      <div class="mentorship-grid">
-        <div class="mentorship-card">
-          <div class="mentorship-title">Intern Mentorship</div>
-          <div class="mentorship-description">
-            Formally mentored 2 interns from onboarding through career foundation, providing technical guidance, code review, and career development across MDM architecture and platform engineering.
+        <article class="project-card">
+          <div class="project-number">02</div>
+          <h3 class="project-title">API-Driven Internal Tooling</h3>
+          <p class="project-description">Built Ruby on Rails services, Swift utilities, and REST integrations that automate inventory management, hardware tracking, and endpoint lifecycle workflows.</p>
+          <div class="project-highlights">
+            <span class="highlight-badge">Ruby on Rails</span>
+            <span class="highlight-badge">Swift</span>
+            <span class="highlight-badge">REST APIs</span>
           </div>
-        </div>
-        <div class="mentorship-card">
-          <div class="mentorship-title">Onboarding Mentorship</div>
-          <div class="mentorship-description">
-            Served as primary onboarding buddy for numerous new hires and team promotions, establishing foundational knowledge, accelerating ramp time, and building strong cross-functional relationships.
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">03</div>
+          <h3 class="project-title">Device Posture & Identity</h3>
+          <p class="project-description">Connected real-time endpoint health states to Okta Identity Workflows, enabling dynamic access decisions and automated compliance enforcement.</p>
+          <div class="project-highlights">
+            <span class="highlight-badge">Okta Workflows</span>
+            <span class="highlight-badge">Zero Trust</span>
+            <span class="highlight-badge">Compliance</span>
           </div>
-        </div>
-        <div class="mentorship-card">
-          <div class="mentorship-title">Technical Leadership</div>
-          <div class="mentorship-description">
-            Invested in team growth by running architectural reviews, mentoring on complex system design, and creating documentation that scales institutional knowledge.
-          </div>
-        </div>
+        </article>
       </div>
     </section>
 
@@ -818,47 +805,51 @@
       <p class="section-label">Experience</p>
       <h2>Where I've <em>built.</em></h2>
 
-      <div class="experience-item">
-        <div class="exp-header">
+      <div class="company-group">
+        <div class="company-header">
           <div class="exp-company">Shopify</div>
-          <div class="exp-period">2020 – Present</div>
         </div>
-        <div class="exp-role">Senior Client Platform Engineer</div>
-        <ul class="exp-bullets">
-          <li>Architected and executed the global, enterprise-wide migration of 10,000+ macOS endpoints from legacy Jamf infrastructure onto <strong>Fleet MDM</strong> and osquery with zero downtime.</li>
-          <li>Led two prior MDM migrations: <strong>Jamf on-prem → Jamf Cloud</strong> and <strong>Jamf Cloud → Fleet MDM</strong>, building custom migration tooling and orchestration to minimize risk.</li>
-          <li>Engineered custom internal web apps, microservices, and native client utilities using <strong>Ruby on Rails</strong>, <strong>Swift</strong>, Python, and MDM REST APIs for inventory management and compliance.</li>
-          <li>Integrated <strong>Okta Identity Workflows</strong> with real-time endpoint posture states, enforcing dynamic zero-trust access across SaaS applications.</li>
-          <li>Built automated offboarding and zero-touch provisioning pipelines using Shell scripting and REST APIs, reducing manual lifecycle tasks across globally distributed teams.</li>
-          <li>Mentored interns and new hires on platform architecture, code review practices, and infrastructure design decisions.</li>
-        </ul>
-      </div>
+        <div class="company-period">2016 – Present</div>
 
-      <div class="experience-item">
-        <div class="exp-header">
-          <div class="exp-company">Shopify</div>
-          <div class="exp-period">2018 – 2020</div>
+        <div class="role-item">
+          <div class="exp-header">
+            <div class="exp-role">Senior Client Platform Engineer</div>
+            <div class="exp-period">2020 – Present</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Architected and executed the global, enterprise-wide migration of 10,000+ macOS endpoints from legacy Jamf infrastructure onto <strong>Fleet MDM</strong> and osquery with zero downtime.</li>
+            <li>Led two prior MDM migrations: <strong>Jamf on-prem → Jamf Cloud</strong> and <strong>Jamf Cloud → Fleet MDM</strong>, building custom migration tooling and orchestration to minimize risk.</li>
+            <li>Engineered custom internal web apps, microservices, and native client utilities using <strong>Ruby on Rails</strong>, <strong>Swift</strong>, Python, and MDM REST APIs for inventory management and compliance.</li>
+            <li>Integrated <strong>Okta Identity Workflows</strong> with real-time endpoint posture states, enforcing dynamic zero-trust access across SaaS applications.</li>
+            <li>Built automated offboarding and zero-touch provisioning pipelines using Shell scripting and REST APIs, reducing manual lifecycle tasks across globally distributed teams.</li>
+            <li>Mentored interns and new hires on platform architecture, code review practices, and infrastructure design decisions.</li>
+          </ul>
         </div>
-        <div class="exp-role">Client Platform Engineer</div>
-        <ul class="exp-bullets">
-          <li>Managed enterprise macOS configurations, application packaging, and device policy deployments for rapidly scaling global workforce.</li>
-          <li>Built and maintained automated onboarding workflows and internal endpoint utilities using Ruby, Swift, Jamf Pro, and Shell scripting.</li>
-          <li>Partnered with security teams to implement endpoint detection, compliance policies, and automated patch management.</li>
-        </ul>
-      </div>
 
-      <div class="experience-item">
-        <div class="exp-header">
-          <div class="exp-company">Shopify</div>
-          <div class="exp-period">2016 – 2018</div>
+        <div class="role-item">
+          <div class="exp-header">
+            <div class="exp-role">Client Platform Engineer</div>
+            <div class="exp-period">2018 – 2020</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Managed enterprise macOS configurations, application packaging, and device policy deployments for rapidly scaling global workforce.</li>
+            <li>Built and maintained automated onboarding workflows and internal endpoint utilities using Ruby, Swift, Jamf Pro, and Shell scripting.</li>
+            <li>Partnered with security teams to implement endpoint detection, compliance policies, and automated patch management.</li>
+          </ul>
         </div>
-        <div class="exp-role">IT Operations Specialist</div>
-        <ul class="exp-bullets">
-          <li>Served as the primary Jamf administrator, managing core MDM infrastructure, package building, configuration profile deployment, and policy automations.</li>
-          <li>Implemented Okta SSO application integrations and identity access workflows during company hypergrowth.</li>
-          <li>Facilitated hands-on IT onboarding for visiting global remote teams (APAC, UK, Ireland, Canada) at the Waterloo office during the rapid expansion of Shopify Plus.</li>
-          <li>Partnered with AV teams to maintain meeting room infrastructure and executed live streams and townhall broadcasts from regional offices.</li>
-        </ul>
+
+        <div class="role-item">
+          <div class="exp-header">
+            <div class="exp-role">IT Operations Specialist</div>
+            <div class="exp-period">2016 – 2018</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Served as the primary Jamf administrator, managing core MDM infrastructure, package building, configuration profile deployment, and policy automations.</li>
+            <li>Implemented Okta SSO application integrations and identity access workflows during company hypergrowth.</li>
+            <li>Facilitated hands-on IT onboarding for visiting global remote teams (APAC, UK, Ireland, Canada) at the Waterloo office during the rapid expansion of Shopify Plus.</li>
+            <li>Partnered with AV teams to maintain meeting room infrastructure and executed live streams and townhall broadcasts from regional offices.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
